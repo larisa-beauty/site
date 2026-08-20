@@ -10,18 +10,20 @@
   <style>
     /* ---------- ОСНОВНЫЕ ПЕРЕМЕННЫЕ ---------- */
     :root {
-      --bg: #fff0f5;
-      --panel: #ffffff;
-      --accent: #ff4d8c;
-      --accent-dark: #e63e6d;
-      --accent-orange: #ff8c42;
-      --text: #2d2d2d;
-      --text-light: #6b5b5b;
-      --shadow: 0 10px 30px rgba(255, 77, 140, 0.2);
-      --shadow-hover: 0 20px 40px rgba(255, 77, 140, 0.35);
+      --bg: #0d0d1a;
+      --panel: rgba(255, 255, 255, 0.05);
+      --panel-solid: #1a1a2e;
+      --text: #f0f0f0;
+      --text-light: #b0b0c0;
+      --accent-pink: #ff2ec4;
+      --accent-cyan: #00f0ff;
+      --accent-orange: #ff9f1c;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      --shadow-hover: 0 20px 40px rgba(255, 46, 196, 0.3);
       --radius: 20px;
-      --gradient-accent: linear-gradient(135deg, #ff4d8c 0%, #ff8c42 100%);
-      --gradient-hero: linear-gradient(135deg, #ffd6e7 0%, #ffb3c6 50%, #ffccb3 100%);
+      --gradient-accent: linear-gradient(135deg, #ff2ec4, #ff9f1c);
+      --gradient-hero: linear-gradient(135deg, #1a0030 0%, #0d0d1a 100%);
+      --gradient-card: linear-gradient(145deg, rgba(255, 46, 196, 0.15), rgba(0, 240, 255, 0.1));
     }
 
     * {
@@ -43,7 +45,7 @@
       overflow-x: hidden;
     }
 
-    /* Плавающие декоративные круги */
+    /* Плавающие неоновые круги */
     body::before,
     body::after {
       content: '';
@@ -51,50 +53,51 @@
       border-radius: 50%;
       z-index: -1;
       pointer-events: none;
-      opacity: 0.4;
-      filter: blur(10px);
+      filter: blur(80px);
+      opacity: 0.7;
     }
     body::before {
-      width: 500px;
-      height: 500px;
-      top: -150px;
-      right: -150px;
-      background: radial-gradient(circle, #ffb3c6, transparent 70%);
-      animation: floatBlob 18s infinite alternate ease-in-out;
+      width: 600px;
+      height: 600px;
+      top: -200px;
+      right: -200px;
+      background: radial-gradient(circle, rgba(255, 46, 196, 0.4), transparent 70%);
+      animation: floatBlob 15s infinite alternate ease-in-out;
     }
     body::after {
-      width: 400px;
-      height: 400px;
-      bottom: -100px;
-      left: -100px;
-      background: radial-gradient(circle, #ffccb3, transparent 70%);
-      animation: floatBlob 22s infinite alternate-reverse ease-in-out;
+      width: 500px;
+      height: 500px;
+      bottom: -200px;
+      left: -200px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.3), transparent 70%);
+      animation: floatBlob 20s infinite alternate-reverse ease-in-out;
     }
 
     @keyframes floatBlob {
       0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(40px, -30px) scale(1.1); }
-      100% { transform: translate(-20px, 20px) scale(0.95); }
+      50% { transform: translate(60px, -40px) scale(1.2); }
+      100% { transform: translate(-30px, 30px) scale(0.9); }
     }
 
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
-      color: #1a1a1a;
+      color: #ffffff;
     }
 
     .container {
       width: min(1150px, 90%);
       margin: 0 auto;
       position: relative;
+      z-index: 1;
     }
 
     /* ---------- ШАПКА ---------- */
     header {
       position: sticky;
       top: 0;
-      background: rgba(255, 240, 245, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid #ffccd5;
+      background: rgba(13, 13, 26, 0.85);
+      backdrop-filter: blur(15px);
+      border-bottom: 2px solid rgba(255, 46, 196, 0.3);
       z-index: 100;
     }
 
@@ -109,11 +112,12 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
       font-weight: 900;
-      color: #1a1a1a;
+      color: #fff;
       letter-spacing: -0.5px;
+      text-shadow: 0 0 20px rgba(255, 46, 196, 0.8);
     }
     .logo span {
-      color: var(--accent);
+      color: var(--accent-pink);
     }
 
     nav ul {
@@ -143,7 +147,8 @@
       border-radius: 2px;
     }
     nav a:hover {
-      color: var(--accent);
+      color: var(--accent-cyan);
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
     }
     nav a:hover::after {
       width: 100%;
@@ -160,54 +165,47 @@
     .burger span {
       width: 26px;
       height: 3px;
-      background: var(--accent);
+      background: var(--accent-pink);
       border-radius: 2px;
+      box-shadow: 0 0 10px var(--accent-pink);
     }
 
     /* ---------- ГЛАВНЫЙ ЭКРАН ---------- */
     .hero {
-      padding: 110px 0 90px;
+      padding: 120px 0 100px;
       text-align: center;
       background: var(--gradient-hero);
-      background-size: 200% 200%;
-      animation: gradientShift 12s ease infinite;
       position: relative;
       overflow: hidden;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
+    /* Неоновые линии и блики */
     .hero::before,
     .hero::after {
       content: '';
       position: absolute;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
+      filter: blur(70px);
       z-index: 0;
     }
     .hero::before {
-      width: 350px;
-      height: 350px;
       top: -100px;
-      left: -50px;
-      animation: heroFloat 14s infinite alternate ease-in-out;
+      left: -100px;
+      background: rgba(255, 46, 196, 0.5);
+      animation: heroGlow 8s infinite alternate ease-in-out;
     }
     .hero::after {
-      width: 300px;
-      height: 300px;
-      bottom: -80px;
-      right: -30px;
-      background: rgba(255, 140, 66, 0.3);
-      animation: heroFloat 16s infinite alternate-reverse ease-in-out;
+      bottom: -100px;
+      right: -100px;
+      background: rgba(0, 240, 255, 0.4);
+      animation: heroGlow 10s infinite alternate-reverse ease-in-out;
     }
 
-    @keyframes heroFloat {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(50px, 40px) scale(1.15); }
+    @keyframes heroGlow {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.3); opacity: 1; }
     }
 
     .hero .container {
@@ -216,24 +214,29 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-size: clamp(3rem, 8vw, 5.5rem);
       font-weight: 900;
       margin-bottom: 20px;
       line-height: 1.1;
-      background: linear-gradient(135deg, #ff2e7e, #ff8c42);
+      background: linear-gradient(135deg, #ff2ec4, #ff9f1c, #00f0ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: drop-shadow(0 4px 15px rgba(255, 77, 140, 0.3));
+      filter: drop-shadow(0 0 30px rgba(255, 46, 196, 0.7));
+      animation: textGlow 3s infinite alternate;
+    }
+    @keyframes textGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(255, 46, 196, 0.7)); }
+      100% { filter: drop-shadow(0 0 40px rgba(0, 240, 255, 0.7)); }
     }
     .hero h1 span {
       background: none;
       -webkit-text-fill-color: #fff;
-      text-shadow: 0 0 20px rgba(255,255,255,0.8);
+      text-shadow: 0 0 30px #fff;
     }
     .hero p {
       font-size: 1.3rem;
-      color: #5a3d3d;
+      color: #ccc;
       max-width: 700px;
       margin: 0 auto 40px;
       font-weight: 500;
@@ -248,16 +251,17 @@
       text-decoration: none;
       letter-spacing: 1px;
       transition: all 0.4s;
-      box-shadow: 0 15px 30px rgba(255, 77, 140, 0.4);
+      box-shadow: 0 15px 30px rgba(255, 46, 196, 0.5);
       position: relative;
       z-index: 1;
       text-transform: uppercase;
       font-size: 0.95rem;
+      border: none;
     }
     .btn:hover {
       transform: translateY(-5px);
-      box-shadow: 0 25px 45px rgba(255, 77, 140, 0.55);
-      background: linear-gradient(135deg, #ff8c42, #ff4d8c);
+      box-shadow: 0 25px 45px rgba(0, 240, 255, 0.6);
+      background: linear-gradient(135deg, #00f0ff, #ff2ec4);
     }
 
     /* ---------- ОБЩИЕ СЕКЦИИ ---------- */
@@ -271,47 +275,41 @@
       font-weight: 900;
       margin-bottom: 50px;
       position: relative;
-      color: #1a1a1a;
+      color: #fff;
       letter-spacing: -1px;
+      text-shadow: 0 0 20px rgba(255, 46, 196, 0.6);
     }
     h2::after {
       content: '';
       display: block;
-      width: 80px;
+      width: 100px;
       height: 5px;
       background: var(--gradient-accent);
       margin: 20px auto 0;
       border-radius: 5px;
+      box-shadow: 0 0 20px var(--accent-pink);
     }
 
-    /* Чередование фонов секций */
-    #about {
-      background: rgba(255, 255, 255, 0.5);
+    /* Секции с эффектом стекла */
+    #about,
+    #price,
+    #testimonials {
+      background: rgba(255, 255, 255, 0.02);
       backdrop-filter: blur(5px);
       border-radius: 80px 0 80px 0;
       margin: 0 4%;
       padding: 90px 6%;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    #services {
-      background: rgba(255, 245, 240, 0.7);
-    }
-    #price {
-      background: rgba(255, 255, 255, 0.5);
+    #services,
+    #portfolio,
+    #contacts {
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
       border-radius: 0 80px 0 80px;
       margin: 0 4%;
       padding: 90px 6%;
-    }
-    #portfolio {
-      background: rgba(255, 245, 240, 0.7);
-    }
-    #testimonials {
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 80px 0 80px 0;
-      margin: 0 4%;
-      padding: 90px 6%;
-    }
-    #contacts {
-      background: rgba(255, 245, 240, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     /* ---------- О МАСТЕРЕ ---------- */
@@ -322,7 +320,7 @@
       align-items: center;
     }
     .about-photo {
-      background: var(--gradient-accent);
+      background: var(--gradient-card);
       height: 420px;
       border-radius: var(--radius);
       display: flex;
@@ -333,13 +331,15 @@
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
+      border: 2px solid rgba(255, 46, 196, 0.3);
+      backdrop-filter: blur(10px);
     }
     .about-photo::after {
       content: '';
       position: absolute;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 20%, transparent 60%);
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 20%, transparent 60%);
       animation: shine 6s linear infinite;
     }
     @keyframes shine {
@@ -353,7 +353,7 @@
       line-height: 1.8;
     }
     .about-text strong {
-      color: var(--accent);
+      color: var(--accent-cyan);
       font-weight: 700;
     }
 
@@ -364,15 +364,16 @@
       gap: 35px;
     }
     .service-card {
-      background: #fff;
+      background: var(--panel);
       border-radius: var(--radius);
       padding: 40px 30px;
       text-align: center;
       box-shadow: var(--shadow);
       transition: all 0.4s;
-      border: 2px solid transparent;
+      border: 2px solid rgba(255, 46, 196, 0.3);
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(10px);
     }
     .service-card::before {
       content: '';
@@ -389,7 +390,7 @@
     .service-card:hover {
       transform: translateY(-10px);
       box-shadow: var(--shadow-hover);
-      border-color: #ffccd5;
+      border-color: var(--accent-cyan);
     }
     .service-card:hover::before {
       transform: scaleX(1);
@@ -398,14 +399,14 @@
       font-size: 4rem;
       margin-bottom: 20px;
       display: inline-block;
-      filter: drop-shadow(0 5px 10px rgba(255,77,140,0.3));
+      filter: drop-shadow(0 0 15px rgba(255, 46, 196, 0.8));
     }
     .service-card h3 {
       font-size: 1.6rem;
       margin-bottom: 15px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      color: var(--text);
+      color: #fff;
     }
     .service-card p {
       color: var(--text-light);
@@ -416,22 +417,23 @@
     .price-list {
       max-width: 750px;
       margin: 0 auto;
-      background: #fff;
+      background: var(--panel);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
-      border: 2px solid #ffccd5;
+      border: 2px solid rgba(255, 46, 196, 0.3);
+      backdrop-filter: blur(10px);
     }
     .price-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 35px;
-      border-bottom: 1px solid #ffe0e9;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       transition: background 0.3s;
     }
     .price-row:hover {
-      background: #fff5f8;
+      background: rgba(255, 46, 196, 0.1);
     }
     .price-row:last-child {
       border-bottom: none;
@@ -439,12 +441,12 @@
     .price-row span:first-child {
       font-weight: 600;
       font-size: 1rem;
+      color: #ddd;
     }
     .price-row span:last-child {
       font-weight: 800;
-      color: var(--accent);
       font-size: 1.2rem;
-      background: linear-gradient(135deg, #ff4d8c, #ff8c42);
+      background: linear-gradient(135deg, #ff2ec4, #ff9f1c);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -461,7 +463,7 @@
       display: flex;
       align-items: flex-end;
       padding: 20px;
-      background: var(--gradient-accent);
+      background: linear-gradient(135deg, #2a1a3a, #0d0d1a);
       color: #fff;
       font-weight: 700;
       font-size: 1.05rem;
@@ -470,12 +472,13 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(255, 46, 196, 0.2);
     }
     .gallery-item::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 60%);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 60%);
       z-index: 0;
     }
     .gallery-item span {
@@ -484,7 +487,8 @@
     }
     .gallery-item:hover {
       transform: scale(1.05) rotate(1deg);
-      box-shadow: var(--shadow-hover);
+      box-shadow: 0 0 30px rgba(255, 46, 196, 0.6);
+      border-color: var(--accent-cyan);
     }
 
     /* ---------- ОТЗЫВЫ ---------- */
@@ -494,15 +498,17 @@
       gap: 35px;
     }
     .testimonial {
-      background: #fff;
+      background: var(--panel);
       border-radius: var(--radius);
       padding: 35px;
       box-shadow: var(--shadow);
-      border-left: 5px solid var(--accent);
-      transition: transform 0.3s;
+      border-left: 5px solid var(--accent-pink);
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(10px);
     }
     .testimonial:hover {
       transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
     }
     .testimonial p {
       font-style: italic;
@@ -526,12 +532,13 @@
       justify-content: center;
       font-size: 2rem;
       color: #fff;
-      box-shadow: 0 5px 15px rgba(255,77,140,0.3);
+      box-shadow: 0 0 20px rgba(255, 46, 196, 0.8);
     }
     .testimonial-author strong {
       display: block;
       font-weight: 700;
       font-size: 1.1rem;
+      color: #fff;
     }
     .testimonial-author span {
       font-size: 0.85rem;
@@ -551,28 +558,25 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      color: #ddd;
     }
     .contact-info strong {
-      color: var(--accent);
+      color: var(--accent-cyan);
       font-weight: 700;
       min-width: 120px;
       display: inline-block;
     }
 
-    /* Стили для обёртки Google-формы */
+    /* Обёртка Google-формы */
     .google-form-wrapper {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
-      border-top: 5px solid var(--accent);
-      transition: box-shadow 0.3s;
+      border-top: 5px solid var(--accent-pink);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 46, 196, 0.3);
     }
-
-    .google-form-wrapper:hover {
-      box-shadow: var(--shadow-hover);
-    }
-
     .google-form-iframe {
       width: 100%;
       height: 696px;
@@ -584,8 +588,8 @@
     footer {
       text-align: center;
       padding: 35px 0;
-      background: #fff;
-      border-top: 3px solid #ffccd5;
+      background: #0d0d1a;
+      border-top: 1px solid rgba(255, 46, 196, 0.3);
       color: var(--text-light);
       font-size: 0.9rem;
     }
@@ -599,10 +603,10 @@
         top: 75px;
         left: 0;
         right: 0;
-        background: #fff;
+        background: rgba(13, 13, 26, 0.95);
         padding: 30px;
         gap: 25px;
-        box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 20px 30px rgba(0,0,0,0.5);
         border-radius: 0 0 30px 30px;
       }
       nav ul.open {
@@ -624,7 +628,8 @@
       h2 {
         font-size: 2.5rem;
       }
-      #about, #price, #testimonials {
+      #about, #price, #testimonials,
+      #services, #portfolio, #contacts {
         border-radius: 40px 0 40px 0;
         margin: 0 2%;
         padding: 60px 5%;
