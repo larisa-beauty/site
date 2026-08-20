@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Анна Соколова — Татуаж бровей и наращивание ресниц</title>
+  <title>Лариса Синкина — Татуаж бровей и наращивание ресниц</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
@@ -558,49 +558,16 @@
       min-width: 120px;
       display: inline-block;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+
+    /* Стиль для iframe Google Forms */
+    .google-form-iframe {
+      width: 100%;
+      height: 696px;
+      border: none;
       background: #fff;
-      padding: 40px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      border-top: 5px solid var(--accent);
-    }
-    input, textarea {
-      padding: 15px 20px;
-      border-radius: 12px;
-      border: 2px solid #ffccd5;
-      background: #fff;
-      font-family: inherit;
-      font-size: 1rem;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(255, 77, 140, 0.1);
-    }
-    button[type="submit"] {
-      align-self: flex-start;
-      background: var(--gradient-accent);
-      color: #fff;
-      border: none;
-      padding: 16px 40px;
-      border-radius: 40px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.4s;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      box-shadow: 0 10px 20px rgba(255, 77, 140, 0.3);
-    }
-    button[type="submit"]:hover {
-      background: linear-gradient(135deg, #ff8c42, #ff4d8c);
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(255, 77, 140, 0.45);
+      overflow: hidden;
     }
 
     /* ---------- ФУТЕР ---------- */
@@ -655,9 +622,6 @@
       .hero h1 {
         font-size: clamp(2.2rem, 8vw, 3.5rem);
       }
-      form {
-        padding: 25px;
-      }
     }
   </style>
 </head>
@@ -666,7 +630,7 @@
   <!-- ШАПКА -->
   <header>
     <div class="container header-inner">
-      <div class="logo">Анна<span>.</span>Соколова</div>
+      <div class="logo">Лариса<span>.</span>Синкина</div>
       <nav>
         <ul>
           <li><a href="#about">О мастере</a></li>
@@ -703,7 +667,7 @@
           👩‍🎨
         </div>
         <div class="about-text">
-          <p>Привет! Я <strong>Анна Соколова</strong> — сертифицированный мастер по татуажу бровей и наращиванию ресниц с опытом более 7 лет.</p>
+          <p>Привет! Я <strong>Лариса Синкина</strong> — сертифицированный мастер по татуажу бровей и наращиванию ресниц с опытом более 7 лет.</p>
           <p>Прошла обучение у ведущих специалистов России и Европы, постоянно повышаю квалификацию. Работаю только с качественными материалами и стерильным инструментом.</p>
           <p>Моя цель — подчеркнуть вашу индивидуальность, сделать взгляд выразительным, а утро — лёгким (больше не нужно тратить время на макияж).</p>
         </div>
@@ -773,7 +737,7 @@
       <h2>Отзывы клиентов</h2>
       <div class="testimonials-grid">
         <div class="testimonial">
-          <p>«Анна — просто волшебница! Брови выглядят очень естественно, а ресницы держатся уже 5 недель. Очень довольна результатом!»</p>
+          <p>«Лариса — просто волшебница! Брови выглядят очень естественно, а ресницы держатся уже 5 недель. Очень довольна результатом!»</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">👩</div>
             <div>
@@ -814,17 +778,12 @@
         <div class="contact-info">
           <p><strong>📍 Адрес:</strong> г. Москва, ул. Тверская, 12 (студия «Beauty Room»)</p>
           <p><strong>📞 Телефон:</strong> +7 (900) 123-45-67</p>
-          <p><strong>✉️ Email:</strong> anna.sokolova@beauty.ru</p>
+          <p><strong>✉️ Email:</strong> larisa.sinkina@beauty.ru</p>
           <p><strong>🕒 Часы работы:</strong> ежедневно с 10:00 до 20:00 (по записи)</p>
-          <p><strong>📱 Соцсети:</strong> Instagram / Telegram — @anna_beauty</p>
+          <p><strong>📱 Соцсети:</strong> Instagram / Telegram — @larisa_beauty</p>
         </div>
-        <!-- Форма будет заменена на iframe Google Forms по инструкции ниже -->
-        <form>
-          <input type="text" placeholder="Ваше имя" required>
-          <input type="tel" placeholder="Телефон" required>
-          <textarea rows="4" placeholder="Желаемая услуга и удобное время"></textarea>
-          <button type="submit">Отправить заявку</button>
-        </form>
+        <!-- Встроенная Google-форма -->
+        <iframe class="google-form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeFpy0ERpqLM6B-zLHElI4Hz5geKmbgVA3irhcYeL7unMmZ0Q/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
       </div>
     </div>
   </section>
@@ -832,7 +791,7 @@
   <!-- ФУТЕР -->
   <footer>
     <div class="container">
-      © 2026 Анна Соколова — татуаж бровей и наращивание ресниц
+      © 2026 Лариса Синкина — татуаж бровей и наращивание ресниц
     </div>
   </footer>
 
@@ -852,14 +811,7 @@
         navList.classList.remove('open');
       });
     });
-
-    // Обработчик формы (его можно удалить, если будете использовать Google Forms)
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Спасибо за заявку! Анна свяжется с вами в ближайшее время.');
-      form.reset();
-    });
+    // Обработчик формы удалён, т.к. используется Google Forms
   </script>
 </body>
 </html>
