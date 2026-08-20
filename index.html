@@ -559,15 +559,25 @@
       display: inline-block;
     }
 
-    /* Стиль для iframe Google Forms */
-    .google-form-iframe {
-      width: 100%;
-      height: 696px;
-      border: none;
+    /* Стили для обёртки Google-формы */
+    .google-form-wrapper {
       background: #fff;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
+      border-top: 5px solid var(--accent);
+      transition: box-shadow 0.3s;
+    }
+
+    .google-form-wrapper:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .google-form-iframe {
+      width: 100%;
+      height: 696px;
+      border: none;
+      display: block;
     }
 
     /* ---------- ФУТЕР ---------- */
@@ -621,6 +631,9 @@
       }
       .hero h1 {
         font-size: clamp(2.2rem, 8vw, 3.5rem);
+      }
+      .google-form-iframe {
+        height: 600px;
       }
     }
   </style>
@@ -782,8 +795,10 @@
           <p><strong>🕒 Часы работы:</strong> ежедневно с 10:00 до 20:00 (по записи)</p>
           <p><strong>📱 Соцсети:</strong> Instagram / Telegram — @larisa_beauty</p>
         </div>
-        <!-- Встроенная Google-форма -->
-        <iframe class="google-form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeFpy0ERpqLM6B-zLHElI4Hz5geKmbgVA3irhcYeL7unMmZ0Q/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+        <!-- Встроенная Google-форма в стилизованной обёртке -->
+        <div class="google-form-wrapper">
+          <iframe class="google-form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeFpy0ERpqLM6B-zLHElI4Hz5geKmbgVA3irhcYeL7unMmZ0Q/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -811,7 +826,7 @@
         navList.classList.remove('open');
       });
     });
-    // Обработчик формы удалён, т.к. используется Google Forms
+    // Обработчик формы не нужен — используется Google Forms
   </script>
 </body>
 </html>
