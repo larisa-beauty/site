@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анна Соколова — Татуаж бровей и наращивание ресниц</title>
+  <!-- Подключаем шрифты с Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- ОСНОВНЫЕ ПЕРЕМЕННЫЕ ---------- */
+    :root {
+      --bg: #fdfaf6;
+      --panel: #ffffff;
+      --accent: #d47b8c;
+      --accent-light: #f2d4da;
+      --text: #4a3f3f;
+      --text-light: #8a7a7a;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ---------- ОБЩИЙ ФОН С ГРАДИЕНТОМ ---------- */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(180deg, #fdfaf6 0%, #f9ecef 30%, #fdfaf6 70%, #f9ecef 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Декоративные плавающие круги на весь сайт */
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      background: rgba(212, 123, 140, 0.08);
+      z-index: -1;
+      pointer-events: none;
+    }
+    body::before {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      right: -100px;
+      animation: floatBlob 20s infinite alternate ease-in-out;
+    }
+    body::after {
+      width: 300px;
+      height: 300px;
+      bottom: -80px;
+      left: -80px;
+      background: rgba(212, 123, 140, 0.12);
+      animation: floatBlob 25s infinite alternate-reverse ease-in-out;
+    }
+
+    @keyframes floatBlob {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(30px, -50px) scale(1.1);
+      }
+      100% {
+        transform: translate(-20px, 30px) scale(0.95);
+      }
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: #3d2e2e;
+    }
+
+    .container {
+      width: min(1150px, 90%);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ---------- ШАПКА ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(253, 250, 246, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #efe5e5;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #3d2e2e;
+    }
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+      letter-spacing: 0.5px;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .burger span {
+      width: 26px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* ---------- ГЛАВНЫЙ ЭКРАН С БОЛЕЕ ВЫРАЗИТЕЛЬНЫМ ФОНОМ ---------- */
+    .hero {
+      padding: 120px 0 100px;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(135deg, #fff5f7 0%, #f7dce3 40%, #fdfaf6 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 15s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Плавающие декоративные элементы в hero */
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      z-index: 0;
+    }
+    .hero::before {
+      width: 300px;
+      height: 300px;
+      top: -80px;
+      left: -60px;
+      animation: heroFloat 12s infinite alternate ease-in-out;
+    }
+    .hero::after {
+      width: 250px;
+      height: 250px;
+      bottom: -60px;
+      right: -40px;
+      background: rgba(212, 123, 140, 0.2);
+      animation: heroFloat 15s infinite alternate-reverse ease-in-out;
+    }
+
+    @keyframes heroFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, 30px) scale(1.1); }
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(212, 123, 140, 0.2);
+    }
+    .hero h1 span {
+      color: var(--accent);
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      max-width: 650px;
+      margin: 0 auto 35px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(212, 123, 140, 0.35);
+      position: relative;
+      z-index: 1;
+    }
+    .btn:hover {
+      background: #c96a7d;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212, 123, 140, 0.45);
+    }
+
+    /* ---------- ОБЩИЕ СЕКЦИИ ---------- */
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Чередование фонов секций для выразительности */
+    #about {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(5px);
+      border-radius: 60px 0 60px 0;
+      margin: 0 5%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    #services {
+      background: rgba(255, 245, 247, 0.7);
+    }
+    #price {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 0 60px 0 60px;
+      margin: 0 5%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    #portfolio {
+      background: rgba(255, 245, 247, 0.7);
+    }
+    #testimonials {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 60px 0 60px 0;
+      margin: 0 5%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    #contacts {
+      background: rgba(255, 245, 247, 0.7);
+    }
+
+    /* ---------- О МАСТЕРЕ ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .about-photo {
+      background: linear-gradient(135deg, var(--accent-light), #f7e3e7);
+      height: 400px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: #fff;
+      box-shadow: var(--shadow);
+      background-size: 200% 200%;
+      animation: gradientShift 10s ease infinite;
+    }
+    .about-text p {
+      margin-bottom: 20px;
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+    .about-text strong {
+      color: var(--text);
+    }
+
+    /* ---------- УСЛУГИ ---------- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .service-card {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 30px 25px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.8);
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .service-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- ПРАЙС ---------- */
+    .price-list {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 30px;
+      border-bottom: 1px solid #f3eaea;
+    }
+    .price-row:last-child {
+      border-bottom: none;
+    }
+    .price-row span:first-child {
+      font-weight: 500;
+    }
+    .price-row span:last-child {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    /* ---------- ПОРТФОЛИО ---------- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      height: 180px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: flex-end;
+      padding: 15px;
+      background: linear-gradient(145deg, #f0d9de, #d47b8c);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s;
+      cursor: pointer;
+      background-size: 200% 200%;
+      animation: gradientShift 8s ease infinite;
+    }
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    /* ---------- ОТЗЫВЫ ---------- */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .testimonial {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+    .testimonial p {
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+    .testimonial-author strong {
+      display: block;
+      font-weight: 600;
+    }
+    .testimonial-author span {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* ---------- КОНТАКТЫ ---------- */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    .contact-info p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+    .contact-info strong {
+      color: var(--text);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    input, textarea {
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid #e5dada;
+      background: rgba(255, 255, 255, 0.9);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border 0.3s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    button[type="submit"] {
+      align-self: flex-start;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 14px 35px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1rem;
+    }
+    button[type="submit"]:hover {
+      background: #c96a7d;
+    }
+
+    /* ---------- ФУТЕР ---------- */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid #efe5e5;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    /* ---------- АДАПТИВНОСТЬ ---------- */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 25px;
+        gap: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        border-radius: 0 0 20px 20px;
+      }
+      nav ul.open {
+        display: flex;
+      }
+      .burger {
+        display: flex;
+      }
+      .about-grid,
+      .contacts-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-photo {
+        height: 300px;
+      }
+      section {
+        padding: 60px 0;
+      }
+      /* Упрощаем скругления на мобильных */
+      #about, #price, #testimonials {
+        border-radius: 30px 0 30px 0;
+        margin: 0 2%;
+        padding-left: 4%;
+        padding-right: 4%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">Анна<span>.</span>Соколова</div>
+      <nav>
+        <ul>
+          <li><a href="#about">О мастере</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#price">Прайс</a></li>
+          <li><a href="#portfolio">Работы</a></li>
+          <li><a href="#testimonials">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <button class="burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ГЛАВНЫЙ ЭКРАН -->
+  <section class="hero">
+    <div class="container">
+      <h1>Идеальные брови <span>&</span> выразительные ресницы</h1>
+      <p>Профессиональный татуаж бровей и наращивание ресниц. Подчеркну вашу естественную красоту в уютной студии.</p>
+      <a href="#contacts" class="btn">Записаться на процедуру</a>
+    </div>
+  </section>
+
+  <!-- О МАСТЕРЕ -->
+  <section id="about">
+    <div class="container">
+      <h2>О мастере</h2>
+      <div class="about-grid">
+        <div class="about-photo">
+          👩‍🎨
+        </div>
+        <div class="about-text">
+          <p>Привет! Я <strong>Анна Соколова</strong> — сертифицированный мастер по татуажу бровей и наращиванию ресниц с опытом более 7 лет.</p>
+          <p>Прошла обучение у ведущих специалистов России и Европы, постоянно повышаю квалификацию. Работаю только с качественными материалами и стерильным инструментом.</p>
+          <p>Моя цель — подчеркнуть вашу индивидуальность, сделать взгляд выразительным, а утро — лёгким (больше не нужно тратить время на макияж).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ -->
+  <section id="services">
+    <div class="container">
+      <h2>Услуги</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3>Татуаж бровей</h3>
+          <p>Волосковая техника, пудровое напыление, комбинированный метод. Подбор формы и цвета.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👁️</div>
+          <h3>Наращивание ресниц</h3>
+          <p>Классическое, 2D, 3D объёмы. Использую гипоаллергенные материалы, эффект от 3 до 6 недель.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💆‍♀️</div>
+          <h3>Дополнительно</h3>
+          <p>Ламинирование бровей, окрашивание хной/краской, коррекция, снятие нарощенных ресниц.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРАЙС -->
+  <section id="price">
+    <div class="container">
+      <h2>Прайс-лист</h2>
+      <div class="price-list">
+        <div class="price-row"><span>Татуаж бровей (волосковый)</span><span>6 000 ₽</span></div>
+        <div class="price-row"><span>Татуаж бровей (пудровый)</span><span>5 000 ₽</span></div>
+        <div class="price-row"><span>Коррекция татуажа (через 1–2 мес)</span><span>3 000 ₽</span></div>
+        <div class="price-row"><span>Наращивание ресниц (классика)</span><span>2 500 ₽</span></div>
+        <div class="price-row"><span>Наращивание ресниц (2D объём)</span><span>3 500 ₽</span></div>
+        <div class="price-row"><span>Наращивание ресниц (3D объём)</span><span>4 500 ₽</span></div>
+        <div class="price-row"><span>Ламинирование бровей</span><span>2 000 ₽</span></div>
+        <div class="price-row"><span>Окрашивание бровей хной</span><span>1 000 ₽</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОРТФОЛИО -->
+  <section id="portfolio">
+    <div class="container">
+      <h2>Мои работы</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">Татуаж бровей</div>
+        <div class="gallery-item">Наращивание 2D</div>
+        <div class="gallery-item">Пудровые брови</div>
+        <div class="gallery-item">Классика ресниц</div>
+        <div class="gallery-item">Ламинирование</div>
+        <div class="gallery-item">3D объём</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОТЗЫВЫ -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>Отзывы клиентов</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p>«Анна — просто волшебница! Брови выглядят очень естественно, а ресницы держатся уже 5 недель. Очень довольна результатом!»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👩</div>
+            <div>
+              <strong>Мария</strong>
+              <span>татуаж бровей + наращивание</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p>«Делала пудровое напыление. Процедура прошла комфортно, результат превзошёл ожидания. Всем рекомендую!»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👩‍🦰</div>
+            <div>
+              <strong>Ольга</strong>
+              <span>пудровый татуаж</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p>«Очень аккуратная работа, приятная атмосфера в студии. Реснички как натуральные! Обязательно приду ещё.»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👱‍♀️</div>
+            <div>
+              <strong>Екатерина</strong>
+              <span>наращивание ресниц 3D</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section id="contacts">
+    <div class="container">
+      <h2>Контакты</h2>
+      <div class="contacts-grid">
+        <div class="contact-info">
+          <p><strong>📍 Адрес:</strong> г. Москва, ул. Тверская, 12 (студия «Beauty Room»)</p>
+          <p><strong>📞 Телефон:</strong> +7 (900) 123-45-67</p>
+          <p><strong>✉️ Email:</strong> anna.sokolova@beauty.ru</p>
+          <p><strong>🕒 Часы работы:</strong> ежедневно с 10:00 до 20:00 (по записи)</p>
+          <p><strong>📱 Соцсети:</strong> Instagram / Telegram — @anna_beauty</p>
+        </div>
+        <form>
+          <input type="text" placeholder="Ваше имя" required>
+          <input type="tel" placeholder="Телефон" required>
+          <textarea rows="4" placeholder="Желаемая услуга и удобное время"></textarea>
+          <button type="submit">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer>
+    <div class="container">
+      © 2026 Анна Соколова — татуаж бровей и наращивание ресниц
+    </div>
+  </footer>
+
+  <!-- СКРИПТЫ -->
+  <script>
+    // Мобильное меню
+    const burger = document.querySelector('.burger');
+    const navList = document.querySelector('nav ul');
+
+    burger.addEventListener('click', () => {
+      navList.classList.toggle('open');
+    });
+
+    // Закрытие меню при клике на ссылку
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('open');
+      });
+    });
+
+    // Простая обработка формы
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Спасибо за заявку! Анна свяжется с вами в ближайшее время.');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
